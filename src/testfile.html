@@ -1,0 +1,106 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<div class="container">
+    <div>
+        <h1>Edit Questions</h1>
+        <hr/>
+        <table id='Questions'>
+            
+            <tr>
+                <td><strong>Questions</strong></td>
+                <td><strong>URL</strong></td>
+            </tr>
+        </table>
+        <hr/>
+        <button id="btnAdd" class = "btn btn-primary">Add Question</button>      <button id="btnSubmit" class = "btn btn-primary">Save Changes</button>
+
+        
+    </div>
+</div>
+<script>
+var sideDiv = window.parent.document.getElementById('mySidenav'); 
+var ancTags = sideDiv.getElementsByTagName('a'); 
+var tableELem = document.getElementById('Questions');
+
+for(var i = 1 ; i < ancTags.length; i++){
+ var row = tableELem.insertRow(i);
+ var cell1 = row.insertCell(0);
+ var cell2 = row.insertCell(1);
+
+ var questionString = ancTags[i].innerHTML; 
+ var urlString = ancTags[i].href; 
+
+ console.log(questionString);
+ console.log(urlString);
+
+ cell1.innerHTML = `<input class='form-control' type='text' value='${questionString}' >`;
+ cell2.innerHTML = `<input class='form-control' type='text' value='${urlString}' >`;
+}
+
+
+
+console.log(parent);
+
+</script>
+<script>
+    var btnAdd = document.getElementById("btnAdd"); 
+    btnAdd.addEventListener("click", function(){
+        var tableElement = document.getElementById('Questions'); 
+        var newRow = tableElement.insertRow(tableELem.rows.length);
+        var cellOne = newRow.insertCell(0);
+        var cellTwo = newRow.insertCell(1);
+
+        cellOne.innerHTML = "<input class='form-control' type='text' placeholder = 'Please type a Question.'>";
+        cellTwo.innerHTML = "<input class='form-control' type='text' placeholder = 'Please type a URL'>";
+    })
+
+
+    var btnSave = document.getElementById("btnSubmit");
+
+
+    btnSave.addEventListener("click", function(){
+
+        var newQuestions = [];
+        var tableItems = document.getElementById('Questions'); 
+
+        for(var i = 1 ; i < tableItems.rows.length; i++){
+            var cellElem = []; 
+            cellElem.push(tableItems.rows[i].cells[0].children[0].value);
+            cellElem.push(tableItems.rows[i].cells[1].children[0].value);
+
+
+            if(cellElem[0] !== "" && cellElem[1] !== ""){
+                newQuestions.push(cellElem);
+            }
+        
+
+        }
+
+        //Need to clear the current navbar items.
+        var currNavBar = window.parent.document.getElementById('menuItems'); 
+        currNavBar.innerHTML = "";
+
+        for(var j = 0 ; j < newQuestions.length; j++){
+            var aTag = document.createElement('a');
+            aTag.setAttribute('href',newQuestions[j][1]);
+            aTag.innerHTML = newQuestions[j][0];
+            currNavBar.appendChild(aTag);
+        }
+        console.log(newQuestions);
+    })
+
+
+</script>
+<style>
+#Questions{
+    padding :5px;
+    width: 100%;
+}
+input[type="text"] {
+     width: 100%; 
+     box-sizing: border-box;
+     -webkit-box-sizing:border-box;
+     -moz-box-sizing: border-box;
+}
+
+</style>

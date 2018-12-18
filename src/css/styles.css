@@ -1,0 +1,68 @@
+.netsage_boilerplate-custom-style {
+	background: #F8AE63;
+}
+
+#NavBar{ 
+height:60px; 
+position:fixed; 
+width:100%; 
+overflow: hidden;
+background-color: #f7f8fa;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: absolute !important;
+    z-index: 9999999 !important;
+    top: 0;
+    left: 0;
+    background-color: rgb(9, 100, 174);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 0px;
+}
+
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #ff9900;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 32px;
+    margin-left: 50px;
+    color: black;
+}
+
+    .fluidMedia {
+        position: relative;
+        padding-bottom: 56.25%; /* proportion value to aspect ratio 16:9 (9 / 16 = 0.5625 or 56.25%) */
+        padding-top: 30px;
+        height: 0;
+        overflow: hidden;
+    }
+    
+    .fluidMedia iframe {
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 100%;
+        height: 100%;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

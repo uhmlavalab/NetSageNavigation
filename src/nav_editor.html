@@ -1,0 +1,17 @@
+<div class="section gf-form-group">
+    <h5 class="section-heading">Nav Questions</h5>
+    <div ng-repeat="x in ctrl.panel.choices track by $index">
+        <div class="gf-form">
+            <label class="gf-form-label">Display Question</label>
+            <input type="text" class="gf-form-input  ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="ctrl.panel.array_option_1[$index]">
+    
+            <label class="gf-form-label">URL</label>
+            <input type="text" class="gf-form-input  ng-pristine ng-untouched ng-valid ng-not-empty" ng-blur="ctrl.render()" ng-model="ctrl.panel.array_option_2[$index]">
+    
+            <div class="gf-form" ng-if="$last">
+              <button class="btn btn-inverse gf-form-btn" ng-click="ctrl.removeChoice($index)">-</button>
+            </div>
+        </div>
+    </div>
+    <button class="gf-form-input width-6" ng-click="ctrl.addNewChoice()">+</button>
+</div>
