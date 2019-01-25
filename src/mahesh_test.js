@@ -313,7 +313,12 @@ export class MaheshTest extends MetricsPanelCtrl {
             var navItem = document.getElementById("NavBar"); 
   //Only create if nav doesnt exist.
             if(!navItem){
-                CreateSideNavBar(); 
+                //This sets the logos 
+                var navBarLogoPath = ctrl.panel.topLogoPath; 
+                var sideNavLogoPath = ctrl.panel.sideLogoPath;
+
+                
+                CreateSideNavBar(navBarLogoPath,sideNavLogoPath); 
                 CreateTopNavBar(); 
               }
 	      }
@@ -348,14 +353,15 @@ export class MaheshTest extends MetricsPanelCtrl {
             aTag.innerHTML = data.Question;
             currNavBar.appendChild(aTag);
     })
-       
-       
 
-       
+  
 
 
 
-        /////////////////  YOUR CODE HERE //////////////
+
+
+    
+    /////////////////  YOUR CODE HERE //////////////
       }
     });
   }
@@ -365,7 +371,6 @@ export class MaheshTest extends MetricsPanelCtrl {
 
 function RemoveGrafanaNav(){
   document.getElementsByTagName('sidemenu')[0].style.display = 'none';        
-  //document.getElementsByClassName('navbar')[0].style.display = 'none';
 }
 
 function CreateTopNavBar(){
@@ -377,9 +382,11 @@ function CreateTopNavBar(){
 
 }
 
-function CreateSideNavBar(){
+function CreateSideNavBar(toppath, sidepath){
+  console.log(toppath, sidepath);
   var sideBarHtml = '<div id="mySidenav" class="sidenav"><div style="background-color:#ffffff;">'
-  sideBarHtml += '<left style = "padding-left:30px;"><img src="http://tokelau.manoa.hawaii.edu:3000/public/plugins/mahesh-test/src/images/logo.png " ></left>'
+  sideBarHtml += '<left style = "padding-left:30px;"><img src="'
+  sideBarHtml += sidepath +'" ></left>'
   sideBarHtml += '</div><a href="javascript:void(0)" class="closebtn" '
   sideBarHtml += 'onclick="document.getElementById('
   sideBarHtml += "'mySidenav').style.width = "
@@ -389,7 +396,7 @@ function CreateSideNavBar(){
   sideBarHtml += 'onclick="document.getElementById('
   sideBarHtml += "'mySidenav').style.width = "
   sideBarHtml += "'420px'"
-  sideBarHtml += ';";"><img src = "http://tokelau.manoa.hawaii.edu:3000/public/plugins/mahesh-test/src/images/hamburger-v4.gif" style = "width:45px;"> <img src="http://tokelau.manoa.hawaii.edu:3000/public/plugins/mahesh-test/src/images/netsage-cropped.png" style= "width:200px; "></span>'
+  sideBarHtml += ';";"><img src = "http://tokelau.manoa.hawaii.edu:3000/public/plugins/mahesh-test/src/images/hamburger-v4.gif" style = "width:45px;"> <img src="'+toppath+'" style= "width:200px; "></span>'
   var sideDiv = document.createElement("div");
   sideDiv.setAttribute("id","SideDiv");
   sideDiv.innerHTML = sideBarHtml; 
