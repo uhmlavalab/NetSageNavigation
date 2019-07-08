@@ -14,4 +14,20 @@
         </div>
     </div>
     <button class="gf-form-input width-6" ng-click="ctrl.addNewChoice()">+</button>
+    <br/>
+    <h5 class="section-heading">Logos</h5>
+    <div class="gf-form">
+        <label class="gf-form-label"> Top Bar Logo Path </label>
+        <input type="text" class="gf-form-input" ng-model="ctrl.panel.topLogoPath" ng-change="ctrl.render()">
+    </div>
+
+    <div class="gf-form">
+        <label class="gf-form-label"> Side Bar Logo Path </label>
+        <input type="text" class="gf-form-input" ng-model="ctrl.panel.sideLogoPath" ng-change="ctrl.render()">
+    </div>
+
+    <div class="gf-form">
+        <label class="gf-form-label"> Hamburger Path</label>
+        <input type="text" class="gf-form-input" ng-model="ctrl.panel.hamburgerPath" ng-change="ctrl.render()">
+    </div>
 </div>
