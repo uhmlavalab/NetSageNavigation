@@ -1,14 +1,14 @@
 {
-  "name": "mahesh-test",
+  "name": "netsagenavigation",
   "version": "0.0.1",
-  "description": "Mahesh Test Grafana Plugin",
+  "description": "Netsagenavigation Grafana Plugin",
   "main": "index.js",
   "scripts": {
     "test": "test"
   },
   "keywords": [
     "netsage",
-    "maheshtest",
+    "netsagenavigation",
     "plugin"
   ],
   "author": "NetSage",

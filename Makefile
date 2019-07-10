@@ -8,15 +8,15 @@
 # 1) update FULL_NAME and SHORT_NAME 
 # 2) run target change_name
 # 3) if updating again, move new name to old name, then update new name
-FULL_NAME = Mahesh Test
-SHORT_NAME = maheshtest
+FULL_NAME = Netsagenavigation
+SHORT_NAME = netsagenavigation
 DOT_NAME = $(shell echo "$(FULL_NAME)" | tr ' ' '.')
 NOSPACE_NAME = $(shell echo "$(FULL_NAME)" | tr -d ' ')
 UNDERSCORE_NAME = $(shell echo "$(FULL_NAME)" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 NAME = $(shell echo "$(FULL_NAME)" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 
-PREV_FULL_NAME = NetSage Boilerplate
-PREV_SHORT_NAME = boilerplate
+PREV_FULL_NAME = Mahesh Test
+PREV_SHORT_NAME = maheshtest
 PREV_DOT_NAME = $(shell echo "$(PREV_FULL_NAME)" | tr ' ' '.')
 PREV_NOSPACE_NAME = $(shell echo "$(PREV_FULL_NAME)" | tr -d ' ')
 PREV_UNDERSCORE_NAME = $(shell echo "$(PREV_FULL_NAME)" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')

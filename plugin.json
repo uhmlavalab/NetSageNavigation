@@ -1,15 +1,15 @@
 {
   "type": "panel",
-  "name": "Mahesh Test",
-  "id": "mahesh-test",
+  "name": "Netsage Navigation",
+  "id": "netsagenavigation",
 
   "info": {
-    "description": "Mahesh Test Grafana Plugin",
+    "description": "Netsage navigation plugin",
     "author": {
       "name": "NetSage",
       "url": "http://www.netsage.global/"
     },
-    "keywords": ["netsage", "maheshtest", "plugin"],
+    "keywords": ["netsagenavigation", "netsagenavigation", "plugin"],
     "version": "0.0.2",
     "updated": "2017-10-10",
     "logos": {
@@ -20,6 +20,6 @@
 
   "dependencies": {
     "grafanaVersion": "3.x.x",
-    "plugins": [ ]
+    "plugins": []
   }
 }

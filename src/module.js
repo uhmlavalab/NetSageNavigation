@@ -19,8 +19,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import {MaheshTest} from './mahesh_test';
+import {Netsagenavigation} from './netsagenavigation';
 
 export {
-  MaheshTest as PanelCtrl
+  Netsagenavigation as PanelCtrl
 };

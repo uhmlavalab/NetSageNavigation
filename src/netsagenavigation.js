@@ -20,24 +20,30 @@ limitations under the License.
 */
 
 
-import { MetricsPanelCtrl } from 'app/plugins/sdk';
+import {
+  MetricsPanelCtrl
+} from 'app/plugins/sdk';
 import _ from 'lodash';
-import { Scale } from './scale';
-import { CustomHover } from './CustomHover';
-import './css/maheshtest_styles.css!';
+import {
+  Scale
+} from './scale';
+import {
+  CustomHover
+} from './CustomHover';
+import './css/netsagenavigation_styles.css!';
 
 
 //import './images/logo.png';
 
-//http://tokelau.manoa.hawaii.edu:3000/public/plugins/mahesh-test/src/images/logo.png
+//http://tokelau.manoa.hawaii.edu:3000/public/plugins/netsagenavigation/src/images/logo.png
 
 
-//import d3 from './js/maheshtest_d3.v3';
+//import d3 from './js/netsagenavigation_d3.v3';
 
 ////// place global variables here ////
 const panelDefaults = {
   option_1: "netsage",
-  option_2: "maheshtest",
+  option_2: "netsagenavigation",
   option_3: "plugin",
   option_4: 123,
   choices: [],
@@ -78,7 +84,7 @@ const panelDefaults = {
 var tempArray = [];
 
 
-export class MaheshTest extends MetricsPanelCtrl {
+export class Netsagenavigation extends MetricsPanelCtrl {
 
 
 
@@ -86,8 +92,8 @@ export class MaheshTest extends MetricsPanelCtrl {
     super($scope, $injector);
 
     _.defaults(this.panel, panelDefaults);
-    this.maheshtest_holder_id = 'maheshtest_' + this.panel.id;
-    this.containerDivId = 'container_' + this.maheshtest_holder_id;
+    this.netsagenavigation_holder_id = 'netsagenavigation_' + this.panel.id;
+    this.containerDivId = 'container_' + this.netsagenavigation_holder_id;
     this.custom_hover = new CustomHover(this.panel.tooltip.content);
     this.scale = new Scale(this.colorScheme);
     this.colorSchemes = this.scale.getColorSchemes();
@@ -165,16 +171,14 @@ export class MaheshTest extends MetricsPanelCtrl {
       }
 
       //put all data into object then into array 
-      self.panel.parsed_data.push(
-        {
-          "min": min,
-          "max": max,
-          "avg": avg / avg_count,
-          "total": avg,
-          "interval": interval,
-          "label": label
-        }
-      );
+      self.panel.parsed_data.push({
+        "min": min,
+        "max": max,
+        "avg": avg / avg_count,
+        "total": avg,
+        "interval": interval,
+        "label": label
+      });
       if (avg > self.panel.max_total) {
         self.panel.max_total = avg;
       }
@@ -192,9 +196,9 @@ export class MaheshTest extends MetricsPanelCtrl {
 
 
   onInitEditMode() {
-    this.addEditorTab('Options', 'public/plugins/mahesh-test/editor.html', 2);
-    this.addEditorTab('Display', 'public/plugins/mahesh-test/display_editor.html', 3);
-    this.addEditorTab('Navigation', 'public/plugins/mahesh-test/nav_editor.html', 3);
+    //this.addEditorTab('Options', 'public/plugins/netsagenavigation/editor.html', 2);
+    //this.addEditorTab('Display', 'public/plugins/netsagenavigation/display_editor.html', 3);
+    this.addEditorTab('Navigation', 'public/plugins/netsagenavigation/nav_editor.html', 3);
     tempArray = this.scale.displayColor(this.panel.colorScheme);
     this.render();
   }
@@ -322,16 +326,10 @@ export class MaheshTest extends MetricsPanelCtrl {
           CreateTopNavBar();
         }
       }
-      if (document.getElementById(ctrl.maheshtest_holder_id)) {
+      if (document.getElementById(ctrl.netsagenavigation_holder_id)) {
         ctrl.display();
 
         RemoveGrafanaNav();
-
-        /////////////////  YOUR CODE HERE //////////////
-        // var htmlContent = '<iframe style= "width:100% ; height:500px; border-width : 0px; " src= "http://tokelau.manoa.hawaii.edu:3000/public/plugins/mahesh-test/src/testfile.html"></iframe>';       
-        // document.getElementById(ctrl.containerDivId).innerHTML = htmlContent;
-
-        //Need to clear the navbar first. 
         var currNavBar = window.parent.document.getElementById('menuItems');
         currNavBar.innerHTML = "";
 
@@ -351,7 +349,7 @@ export class MaheshTest extends MetricsPanelCtrl {
           var aTag = document.createElement('a');
           aTag.setAttribute('href', data.Url);
           aTag.innerHTML = data.Question;
-          aTag.onclick = function(){
+          aTag.onclick = function () {
             document.getElementById("mySidenav").style.width = "0px";
           }
           currNavBar.appendChild(aTag);
@@ -367,7 +365,11 @@ export class MaheshTest extends MetricsPanelCtrl {
 
 
 function RemoveGrafanaNav() {
-  document.getElementsByTagName('sidemenu')[0].style.display = 'none';
+  var sideMenuBar = document.getElementsByTagName('sidemenu')[0];
+  if (sideMenuBar.style.display != 'none') {
+    sideMenuBar.style.display = 'none';
+  }
+
 }
 
 function CreateTopNavBar() {
@@ -389,7 +391,7 @@ function CreateSideNavBar(toppath, sidepath, hamburgerPath) {
   sideBarHtml += "'mySidenav').style.width = "
   sideBarHtml += "'0px'"
   sideBarHtml += ';";">'
-  sideBarHtml += ' &times;</a><div id="menuItems" ><a href="https://portal.netsage.global/grafana/d/000000003/bandwidth-dashboard?refresh=1d&orgId=2">What is the current state of the network?</a><a href="https://portal.netsage.global/grafana/d/000000006/loss-patterns?orgId=2">What are the patterns of loss in the network?</a><a href="https://portal.netsage.global/grafana/d/000000005/latency-patterns?orgId=2">What are the latency patterns in the network?</a></div></div><span style="font-size:30px;cursor:pointer" ' 
+  sideBarHtml += ' &times;</a><div id="menuItems" ><a href="https://portal.netsage.global/grafana/d/000000003/bandwidth-dashboard?refresh=1d&orgId=2">What is the current state of the network?</a><a href="https://portal.netsage.global/grafana/d/000000006/loss-patterns?orgId=2">What are the patterns of loss in the network?</a><a href="https://portal.netsage.global/grafana/d/000000005/latency-patterns?orgId=2">What are the latency patterns in the network?</a></div></div><span style="font-size:30px;cursor:pointer" '
   sideBarHtml += 'onclick="document.getElementById('
   sideBarHtml += "'mySidenav').style.width = "
   sideBarHtml += "'420px'"
@@ -404,4 +406,4 @@ function CreateSideNavBar(toppath, sidepath, hamburgerPath) {
 
 
 
-MaheshTest.templateUrl = 'module.html';
+Netsagenavigation.templateUrl = 'module.html';

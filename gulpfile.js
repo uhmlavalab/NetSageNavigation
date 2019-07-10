@@ -26,7 +26,7 @@ var dependencies = [];
 
 //helper function for exporting modules into a global namespace
 var _namespace = function(module){
-    var base = "Mahesh.Test.";
+    var base = "Netsagenavigation.";
     return base + module; 
 };
 
@@ -57,7 +57,7 @@ var createJS = function(options){
     var namespace =  _namespace(options.name);
     var name_lower = options.name.toLowerCase();
 
-    var file_name = (options.dev) ? 'maheshtest_'+name_lower+'.js' : 'maheshtest_'+name_lower+'.min.js';
+    var file_name = (options.dev) ? 'netsagenavigation_'+name_lower+'.js' : 'netsagenavigation_'+name_lower+'.min.js';
     return browserify('./src/js/index/'+options.name+'.js', {
             standalone: namespace
         })
@@ -99,7 +99,7 @@ var createCSS = function(options){
 
     var name_lower = options.name.toLowerCase();
 
-    var file_name = (options.dev) ? 'maheshtest_'+name_lower+'.css' : 'maheshtest_'+name_lower+'.min.css';
+    var file_name = (options.dev) ? 'netsagenavigation_'+name_lower+'.css' : 'netsagenavigation_'+name_lower+'.min.css';
     gulp.src(options.files,{base: 'src/css/'})
         .pipe(concat(file_name))
         //get rid of windows newline cancer
@@ -176,8 +176,8 @@ var _generateYuiAPIDocs = function(options){
     return gulp.src("./js/**/*.js")
         .pipe(yuidoc.parser({
             project: {
-                "name": "Mahesh Test",
-                "description": "Mahesh Test API ",
+                "name": "Netsagenavigation",
+                "description": "Netsagenavigation API ",
                 "version": "1.0.3",
                 "url": "http://www.netsage.global/",
                 "themedir": "./node_modules/yuidoc-bootstrap-theme",
